@@ -23,6 +23,7 @@
                 <input type="hidden" name="id">
             </form>
         </article>
+        <!-- formo la tabla -->
         <article>
             <h2>Ver Santos</h2>
             <table id="crud-table">
@@ -38,6 +39,7 @@
         </article>
     </section>
 
+    <!-- creo la tabla dinamica con los botones de eliminar y editar -->
     <template id="crud-template">
         <tr>
             <td class="name"></td>
@@ -48,7 +50,16 @@
             </td>
         </tr>
     </template>
+    <script>
+        // creo constantes relacionadas al dom
+        const d = document,
+            $table = d.querySelector(".crud-table"),
+            $form = d.querySelector(".crud-form"),
+            $title = d.querySelector(".crud-title"),
+            $template = d.getElementById("crud-template").content,
+            $fragment = d.createDocumentFragment();
 
+    </script>
 </body>
 
 </html>
