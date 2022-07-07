@@ -26,7 +26,7 @@
         <!-- formo la tabla -->
         <article>
             <h2>Ver Santos</h2>
-            <table id="crud-table">
+            <table class="crud-table">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -43,7 +43,7 @@
     <template id="crud-template">
         <tr>
             <td class="name"></td>
-            <td class="constelacion"></td>
+            <td class="constellation"></td>
             <td>
                 <button class="edit">Editar</button>
                 <button class="delete">Eliminar</button>
@@ -58,6 +58,39 @@
             $title = d.querySelector(".crud-title"),
             $template = d.getElementById("crud-template").content,
             $fragment = d.createDocumentFragment();
+
+        const getAll = async () => {
+            try {
+                //peticion por metodo GET
+                let res = await fetch("http://localhost:3000/santos");
+                json = await res.json();
+                if (!res.ok) throw { status: res.status, statusText: res.statusText }
+
+                console.log(json);
+                json.forEach(el => {
+                    $template.querySelector(".name").textContent = el.nombre;
+                    $template.querySelector(".constellation").textContent = el.constelacion;
+                    $template.querySelector(".edit").dataset.id = el.id;
+                    $template.querySelector(".edit").dataset.name = el.nombre;
+                    $template.querySelector(".edit").dataset.constellation = el.constelacion;
+                    $template.querySelector(".delete").dataset.id = el.id;
+
+                    //importo un nodo (true para que copie el contenido y no sea un nodo vacio)
+                    //fragment para no pegar en cada inserccion al dom entonces clono el nodo ahi
+                    let $clone = d.importNode($template, true);
+                    $fragment.appendChild($clone);
+                });
+
+                //busco en el tbody y agrego el fragmento
+                $table.querySelector("tbody").appendChild($fragment);
+            } catch (err) {
+                console.log("err",err)
+                let message = err.statusText || "Ocurrió un error";
+                $table.insertAdjacentHTML("afterend", `<p><b>Error ${err.status}: ${message}</b></p>`);
+            }
+        }
+
+        d.addEventListener("DOMContentLoaded", getAll);
 
     </script>
 </body>
