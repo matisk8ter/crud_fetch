@@ -84,13 +84,45 @@
                 //busco en el tbody y agrego el fragmento
                 $table.querySelector("tbody").appendChild($fragment);
             } catch (err) {
-                console.log("err",err)
+                console.log("err", err)
                 let message = err.statusText || "Ocurrió un error";
                 $table.insertAdjacentHTML("afterend", `<p><b>Error ${err.status}: ${message}</b></p>`);
             }
         }
 
         d.addEventListener("DOMContentLoaded", getAll);
+
+        d.addEventListener("submit", async e => {
+            //se ejecuta cuando el objeto que origino el evneto sea igual al que tengo en la variable form
+            if (e.target === $form) {
+                //desactivo el comportamiento del form que es auto-completarse
+                e.preventDefault
+
+                if (!e.target.id.value) {
+                    //create-POST
+                    try {
+                        let options = {
+                            method: "POST",
+                            headers: {
+                                "Content-type": "application/json; charset=utf-8"
+                            },
+                            body: JSON.stringify({
+                                nombre: e.target.nombre.value,
+                                constelacion: e.target.constelacion.value
+                            })
+                        },
+                            res = await fetch("http://localhost:3000/santos", options),
+                            json = await res.json();
+                        if (!res.ok) throw { status: res.status, statusText: res.statusText };
+                    } catch (err) {
+                        let message = err.statusText || "Ocurrió un error";
+                        $form.insertAdjacentHTML("afterend", `<p><b>Error ${err.status}: ${message}</b></p>`);
+                    }
+                } else {
+                    //update-PUT
+                }
+            }
+        })
 
     </script>
 </body>
