@@ -5,6 +5,10 @@ const d = document,
   $title = d.querySelector(".crud-title"),
   $template = d.getElementById("crud-template").content,
   $fragment = d.createDocumentFragment();
+
+
+
+
 const getAll = async () => {
   try {
     //peticion por metodo GET
@@ -20,6 +24,7 @@ const getAll = async () => {
       $template.querySelector(".edit").dataset.name = el.nombre;
       $template.querySelector(".edit").dataset.constellation = el.constelacion;
       $template.querySelector(".delete").dataset.id = el.id;
+      $template.querySelector(".contImg").src = el.imagen;
 
       //importo un nodo (true para que copie el contenido y no sea un nodo vacio)
       //fragment para no pegar en cada inserccion al dom entonces clono el nodo ahi
@@ -53,6 +58,7 @@ d.addEventListener("submit", async (e) => {
             body: JSON.stringify({
               nombre: e.target.nombre.value,
               constelacion: e.target.constelacion.value,
+              imagen:e.target.imagen.value
             }),
           },
           res = await fetch("http://localhost:3000/santos", options),
@@ -74,6 +80,7 @@ d.addEventListener("submit", async (e) => {
             body: JSON.stringify({
               nombre: e.target.nombre.value,
               constelacion: e.target.constelacion.value,
+              imagen: e.target.imagen.value,
             }),
           },
           res = await fetch(
@@ -98,6 +105,7 @@ d.addEventListener("click", async (e) => {
     $title.textContent = "Editar Santo";
     $form.nombre.value = e.target.dataset.name;
     $form.constelacion.value = e.target.dataset.constellation;
+    $form.imagen.src = e.target.dataset.contImg;
     $form.id.value = e.target.dataset.id;
   }
 

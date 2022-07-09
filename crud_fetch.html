@@ -11,7 +11,7 @@
 
 <body>
     <div class="cont-padre">
-       
+
 
         <div class="container">
 
@@ -27,7 +27,10 @@
                         <br><br>
                         <input type="text" name="constelacion" placeholder="constelacion" required>
                         <br><br>
+                        <input type="text" name="imagen" placeholder="url imagen" required>
+                        <br><br>
                         <input type="submit" value="Enviar">
+                        <br><br>
                         <input type="hidden" name="id">
                     </form>
                 </article>
@@ -37,6 +40,7 @@
                     <table class="crud-table">
                         <thead>
                             <tr>
+                                <th>Imagen</th>
                                 <th>Nombre</th>
                                 <th>Constelación</th>
                                 <th>Acciones</th>
@@ -50,6 +54,9 @@
             <!-- creo la tabla dinamica con los botones de eliminar y editar -->
             <template id="crud-template">
                 <tr>
+                    <td>
+                        <img src="" class="contImg">
+                    </td>
                     <td class="name"></td>
                     <td class="constellation"></td>
                     <td>
