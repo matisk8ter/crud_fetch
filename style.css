@@ -11,11 +11,12 @@ body{
     text-align: center;
     align-items: center;
     flex-direction: column;
-    background-image: url(https://image.tmdb.org/t/p/original/azRtf0y7TmF4E5b6jrKTchSd6SC.jpg);
+    /* background-image: url(https://image.tmdb.org/t/p/original/azRtf0y7TmF4E5b6jrKTchSd6SC.jpg); */
+    background: linear-gradient(-900deg, rgba(0, 12, 12, 0.8), rgba(255, 149, 0, 0.8)),
+        url(https://image.tmdb.org/t/p/original/azRtf0y7TmF4E5b6jrKTchSd6SC.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    
-   
+    background-attachment: fixed;
 
 }
 img{
@@ -31,7 +32,8 @@ img{
 }
 .container{
     width: 800px;
-    background: #FF9234;
+    /* background: #FF9234; */
+    background: linear-gradient(-900deg, rgba(255, 140, 0, 0.8), rgba(0, 0, 0, 0.8));
     display: flex;
     align-items: center;
     flex-direction: column;
