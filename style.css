@@ -10,10 +10,9 @@ body{
     justify-content: center;
     text-align: center;
     align-items: center;
-    flex-direction: column;
-    /* background-image: url(https://image.tmdb.org/t/p/original/azRtf0y7TmF4E5b6jrKTchSd6SC.jpg); */
-    background: linear-gradient(-900deg, rgba(0, 12, 12, 0.8), rgba(255, 149, 0, 0.8)),
-        url(https://image.tmdb.org/t/p/original/azRtf0y7TmF4E5b6jrKTchSd6SC.jpg);
+    background-color: linear-gradient(-900deg, rgba(0, 12, 12, 0.8), rgba(255, 149, 0, 0.8));
+    /* background: linear-gradient(-900deg, rgba(0, 12, 12, 0.8), rgba(255, 149, 0, 0.8)),
+        url(https://image.tmdb.org/t/p/original/azRtf0y7TmF4E5b6jrKTchSd6SC.jpg); */
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

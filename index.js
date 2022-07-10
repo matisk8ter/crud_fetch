@@ -6,9 +6,6 @@ const d = document,
   $template = d.getElementById("crud-template").content,
   $fragment = d.createDocumentFragment();
 
-
-
-
 const getAll = async () => {
   try {
     //peticion por metodo GET
@@ -58,7 +55,7 @@ d.addEventListener("submit", async (e) => {
             body: JSON.stringify({
               nombre: e.target.nombre.value,
               constelacion: e.target.constelacion.value,
-              imagen:e.target.imagen.value
+              imagen: e.target.imagen.value,
             }),
           },
           res = await fetch("http://localhost:3000/santos", options),
@@ -143,10 +140,19 @@ d.addEventListener("click", async (e) => {
   }
 });
 
+//------------------MENSAJE DE ERROR-----------------------
 function showMessage(err) {
   let message = err.statusText || "Ocurrió un error";
   $form.insertAdjacentHTML(
     "afterend",
     `<p><b>Error ${err.status}: ${message}</b></p>`
   );
+}
+
+//------------Cambio la imagen de fondo----------------------
+document.addEventListener("DOMContentLoaded", cambiarImgFondo);
+function cambiarImgFondo() {
+  let fondo = document.querySelector(".cont-padre");
+  let numeroRandom = Math.floor(Math.random() * 3);
+  fondo.style.backgroundImage = `url('./img/backgroud-${numeroRandom}.jpg')`;
 }
