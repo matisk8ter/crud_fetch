@@ -5,7 +5,7 @@ const d = document,
   $title = d.querySelector(".crud-title"),
   $template = d.getElementById("crud-template").content,
   $fragment = d.createDocumentFragment();
-
+$cancelar = d.getElementById("cancelar");
 const getAll = async () => {
   try {
     //peticion por metodo GET
@@ -94,6 +94,9 @@ d.addEventListener("submit", async (e) => {
       }
     }
   }
+  if ($cancelar.style.display !== "none") {
+    $cancelar.style.display = "none";
+  }
 });
 
 //obtengo un elemento a editar
@@ -104,6 +107,13 @@ d.addEventListener("click", async (e) => {
     $form.constelacion.value = e.target.dataset.constellation;
     $form.imagen.src = e.target.dataset.contImg;
     $form.id.value = e.target.dataset.id;
+    $cancelar.style.display = "inline";
+  }
+  if (e.target.matches("#cancelar")) {
+    $cancelar.style.display = "none";
+    $form.nombre.value = "";
+    $form.constelacion.value = "";
+    $form.imagen.value = "";
   }
 
   //si el boton que tiene la clase delete

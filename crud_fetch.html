@@ -29,14 +29,17 @@
                         <br><br>
                         <input type="text" name="imagen" placeholder="url imagen" required>
                         <br><br>
-                        <input type="submit" value="Enviar">
-                        <br><br>
+                        <div>
+                            <input type="submit" value="Enviar" id="enviar">
+                            <input type="submit" id="cancelar" value="cancelar" style="display:none;">
+                        </div>
                         <input type="hidden" name="id">
                     </form>
                 </article>
                 <!-- formo la tabla -->
                 <article>
-                    <h2>Ver Caballeros del Zodíaco</h2>
+                    <h2> Ver Caballeros del Zodíaco</h2>
+
                     <table class="crud-table">
                         <thead>
                             <tr>

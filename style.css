@@ -6,6 +6,7 @@ body{
     padding: 0;
 }
 .cont-padre{
+    
     display: flex;
     justify-content: center;
     text-align: center;
@@ -16,18 +17,19 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+  
 
-}
-img{
-    display: flex;
-    width: 80px;
-    height: 80px;
 }
 .crud{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+img{
+    display: flex;
+    width: 80px;
+    height: 80px;
 }
 .container{
     width: 800px;
@@ -36,7 +38,7 @@ img{
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100%;
+    
     padding-bottom: 15px;
     box-shadow:0px 0px 10px #f8ec02;
     
@@ -59,8 +61,13 @@ th{
 .crud-form input{
     font-size: 20px;
 }
-.crud-form input:hover{
-    background: #bdbd025a;
+
+.crud-form #cancelar:hover{
+    background: #ff0000;
+    color: white;
+}
+.crud-form #enviar:hover{
+    background: #01f92f;
     color: white;
 }
 button{
