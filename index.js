@@ -39,6 +39,7 @@ const getAll = async () => {
 d.addEventListener("DOMContentLoaded", getAll);
 
 d.addEventListener("submit", async (e) => {
+  
   //se ejecuta cuando el objeto que origino el evneto sea igual al que tengo en la variable form
   if (e.target === $form) {
     //desactivo el comportamiento del form que es auto-completarse

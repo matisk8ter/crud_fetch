@@ -6,7 +6,6 @@ body{
     padding: 0;
 }
 .cont-padre{
-    
     display: flex;
     justify-content: center;
     text-align: center;
@@ -17,9 +16,20 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-  
-
+    min-height: 100vh;
 }
+.container{
+    width: 800px;
+    /* background: #FF9234; */
+    background: linear-gradient(-900deg, rgba(255, 140, 0, 0.8), rgba(0, 0, 0, 0.8));
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 15px;
+    box-shadow:0px 0px 10px #f8ec02;
+    
+}
+
 .crud{
     display: flex;
     flex-direction: column;
@@ -31,18 +41,7 @@ img{
     width: 80px;
     height: 80px;
 }
-.container{
-    width: 800px;
-    /* background: #FF9234; */
-    background: linear-gradient(-900deg, rgba(255, 140, 0, 0.8), rgba(0, 0, 0, 0.8));
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    
-    padding-bottom: 15px;
-    box-shadow:0px 0px 10px #f8ec02;
-    
-}
+
 .first-block{
     padding: 5px;
     border: 2px solid;
