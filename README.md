@@ -1,3 +1,3 @@
 # crud_fetch
-kata crud fetch
-
+video explicando
+https://youtu.be/_yDjyK-zbH0
